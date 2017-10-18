@@ -27,7 +27,7 @@ class LoginForm extends Component {
   }
 
   renderButton() {
-    if (this.props.loading) {
+    if (!this.props.loading) {
       return (
         <Button
           onPress={this.onButtonPress.bind(this)}
@@ -82,11 +82,12 @@ const styles = {
 };
 
 const mapStateToProps = ({ auth }) => {
-  const { email, password, error } = auth;
+  const { email, password, error, loading } = auth;
   return {
     email,
     password,
     error,
+    loading,
   }
 };
 
